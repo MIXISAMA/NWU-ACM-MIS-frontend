@@ -22,18 +22,19 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue'
 import config from '@/config'
 
-export default {
+export default defineComponent({
   data() {
     return {
       projectName: config.PROJECT_NAME,
     };
   },
   methods: {
-    handleSelect(key: string, keyPath: string[]) {
+    handleSelect(key: string, keyPath: string[]): void {
       console.log(key, keyPath);
     }
   }
-}
+})
 </script>

@@ -24,24 +24,12 @@
 
 <script lang="ts">
 import MainHeader from './components/MainHeader.vue'
-import config from './config'
 
 export default {
   name: 'App',
   components: {
     MainHeader
   },
-  data() {
-    return {
-      activeIndex: '1',
-      activeIndex2: '1',
-    };
-  },
-  methods: {
-    handleSelect(key: string, keyPath: string[]) {
-      console.log(key, keyPath);
-    }
-  }
 }
 </script>
 
