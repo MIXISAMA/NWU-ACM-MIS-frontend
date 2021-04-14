@@ -1,30 +1,57 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <!-- <img src="./assets/logo.png">
+  <div>
+    
+    <p>
+      If Element Plus is successfully added to this project, you'll see an
+      <code v-text="'<el-button>'"></code>
+      below
+    </p>
+    <el-button type="primary">el-button</el-button>
   </div>
-  <router-view/>
+  <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+  
+  <el-container style="min-width: 700px">
+    <el-header style="border-bottom: 1px solid #dcdfe6;float: right;">
+      <MainHeader/>
+    </el-header>
+    <el-main>
+      <router-view/>
+    </el-main>
+    <el-footer>Footer</el-footer>
+  </el-container>
 </template>
 
+<script lang="ts">
+import MainHeader from './components/MainHeader.vue'
+import config from './config'
+
+export default {
+  name: 'App',
+  components: {
+    MainHeader
+  },
+  data() {
+    return {
+      activeIndex: '1',
+      activeIndex2: '1',
+    };
+  },
+  methods: {
+    handleSelect(key: string, keyPath: string[]) {
+      console.log(key, keyPath);
+    }
+  }
+}
+</script>
+
 <style>
-#app {
+/* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  margin-top: 60px;
+} */
 </style>
