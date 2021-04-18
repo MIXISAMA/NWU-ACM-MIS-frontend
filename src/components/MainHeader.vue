@@ -1,7 +1,7 @@
 <template>
 <el-row>
   <el-col :xs="8" :sm="10" :lg="12">
-    <h1 style="float: left;">{{ projectName }}</h1>
+    <img alt="Nwu logo" src="http://img.zhangjunbo.top/常用素材1.jpg" width="220">
   </el-col>
   <el-col :xs="13" :sm="11" :lg="8">
     <el-menu default-active="/" class="el-menu-demo" mode="horizontal" @select="handleSelect" :router="true">
