@@ -7,7 +7,7 @@
     <el-menu default-active="/" class="el-menu-demo" mode="horizontal" @select="handleSelect" :router="true">
       <el-menu-item index="/">主页</el-menu-item>
       <el-menu-item index="/publicity">宣传</el-menu-item>
-      <el-menu-item index="/oj" disabled>oj</el-menu-item>
+      <el-menu-item index="/oj" disabled>题库</el-menu-item>
       <el-menu-item index="/team">组队</el-menu-item>
       <el-menu-item index="/statistics">统计</el-menu-item>
     </el-menu>
