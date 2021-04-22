@@ -7,14 +7,17 @@
         use
     } from "echarts/core";
     import {
-        GridComponent, TitleComponent
+        GridComponent,
+        LegendComponent,
+        TitleComponent,
     } from 'echarts/components';
     import {
-        LineChart
+        BarChart
     } from 'echarts/charts';
     import {
         CanvasRenderer
     } from 'echarts/renderers';
+
     import VChart, {
         THEME_KEY
     } from "vue-echarts";
@@ -24,8 +27,9 @@
     } from "vue";
 
     use([
-        GridComponent, 
-        LineChart, 
+        GridComponent,
+        BarChart,
+        LegendComponent,
         CanvasRenderer,
         TitleComponent,
     ]);
@@ -39,21 +43,35 @@
         },
         setup: () => {
             const option = ref({
-                title: {
-                    text: "Rating Change",
-                    left: "center"
-                },
                 xAxis: {
-                    type: 'category',
-                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                    max: 'dataMax',
                 },
                 yAxis: {
-                    type: 'value'
+                    type: 'category',
+                    data: ['A', 'B', 'C', 'D', 'E'],
+                    inverse: true,
+                    animationDuration: 300,
+                    animationDurationUpdate: 300,
+                    max: 2 // only the largest 3 bars will be displayed
                 },
                 series: [{
-                    data: [1500, 1230, 1224, 1218, 1355, 1470, 1260],
-                    type: 'line'
-                }]
+                    realtimeSort: true,
+                    name: 'Rating',
+                    type: 'bar',
+                    data: [120, 1300, 1350, 1400, 1300],
+                    label: {
+                        show: true,
+                        position: 'right',
+                        valueAnimation: true
+                    }
+                }],
+                legend: {
+                    show: true
+                },
+                animationDuration: 0,
+                animationDurationUpdate: 3000,
+                animationEasing: 'linear',
+                animationEasingUpdate: 'linear'
 
             });
 
