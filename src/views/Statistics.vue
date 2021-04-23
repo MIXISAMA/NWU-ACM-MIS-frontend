@@ -34,11 +34,11 @@
             </template>
           </el-menu-item>
           </router-link>
-          <router-link to="/statistics/contribution" class="router-link-activate">
+          <router-link to="/statistics/person-data" class="router-link-activate">
           <el-menu-item index="3">
-            <i class="el-icon-star-off"></i>
+            <i class="el-icon-user"></i>
             <template #title>
-              贡献点
+              队员信息
             </template>
           </el-menu-item>
           </router-link>
@@ -46,7 +46,6 @@
       </el-col>
     </el-aside>
     <el-container>
-      <el-header>Header</el-header>
       <el-main>
         <router-view></router-view>
       </el-main>

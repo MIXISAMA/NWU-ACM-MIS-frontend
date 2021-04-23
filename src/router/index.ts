@@ -37,8 +37,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('../views/Statistics/Rating.vue')
       },
       {
-        path: 'contribution',
-        component: () => import('../views/Statistics/Contribution.vue')
+        path: 'person-data',
+        component: () => import('../views/Statistics/PersonData.vue')
       }
     ],
     component: () => import('../views/Statistics.vue')
