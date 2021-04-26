@@ -24,12 +24,20 @@
 
 <script lang="ts">
 import MainHeader from './components/MainHeader.vue'
+import axios from 'axios'
 
 export default {
   name: 'App',
   components: {
     MainHeader
   },
+  created() {
+    axios.interceptors.request.use((config) => {
+      const token = (this as any).$cookie.getCookie('token')
+      config.headers['Authorization'] = token
+      return config
+    })
+  }
 }
 </script>
 

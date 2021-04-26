@@ -16,6 +16,8 @@
     <el-divider direction="vertical"></el-divider>
   </el-col>
   <el-col :xs="2" :sm="2" :lg="3">
+    <el-button type="text" @click="$store.state.loginDialogVisable = true">登陆/注册</el-button>
+    <LoginDialog/>
     <span>用户</span>
   </el-col>
 </el-row>
@@ -23,18 +25,33 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+// import store from '@/store'
 import config from '@/config'
+import LoginDialog from '@/components/LoginDialog.vue'
 
 export default defineComponent({
   data() {
     return {
+      collegeName: config.COLLEGE_NAME,
       projectName: config.PROJECT_NAME,
+      // loginDialogVisible: false,
+      activeName: 'email-login',
+      emailRegisterForm: {
+        nickname: '',
+        email: '',
+        code: '',
+        password: '',
+        checkPassword: '',
+      }
     };
   },
   methods: {
     handleSelect(key: string, keyPath: string[]): void {
       console.log(key, keyPath);
     }
+  },
+  components: {
+    LoginDialog,
   }
 })
 </script>
