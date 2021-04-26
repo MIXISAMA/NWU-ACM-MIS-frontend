@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../views/Home.vue'
 
+
+
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -20,6 +23,24 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/statistics',
     name: 'Statistics',
+    children: [
+      {
+        path: 'solve-problems',
+        component: () => import('../views/Statistics/SolveProblems.vue')
+      },
+      {
+        path: 'date-arrange',
+        component: () => import('../views/Statistics/DateArrange.vue')
+      },
+      {
+        path: 'rating',
+        component: () => import('../views/Statistics/Rating.vue')
+      },
+      {
+        path: 'person-data',
+        component: () => import('../views/Statistics/PersonData.vue')
+      }
+    ],
     component: () => import('../views/Statistics.vue')
   }
   // {
