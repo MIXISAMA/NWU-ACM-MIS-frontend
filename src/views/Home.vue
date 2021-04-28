@@ -30,8 +30,12 @@
           <el-button class="button" type="text">详情</el-button>
         </div>
       </template>
-      <div v-for="o in 5" :key="o" class="text item">{{'列表内容 ' + o }}</div>
+      <div v-for="o in 3" :key="o" class="text item">{{'列表内容 ' + o }}</div>
     </el-card>
+    <!-- 添加Rating排序 -->
+    <!-- <div>
+      <v-chart class="chart" :option="option" />
+    </div> -->
   </div>
   <div style="width:90%; margin:0 auto; float:left;margin-left:100px">
     <div class="box">
@@ -50,7 +54,32 @@
 </template>
 
 <script lang="ts">
-  export default {
+  import {
+    defineComponent,
+    ref,
+  } from 'vue'
+  import {
+    use
+  } from 'echarts/core';
+  import {
+    TitleComponent,
+    ToolboxComponent,
+    TooltipComponent,
+    LegendComponent
+  } from 'echarts/components';
+  import {
+    FunnelChart
+  } from 'echarts/charts';
+  import {
+    CanvasRenderer
+  } from 'echarts/renderers';
+
+  use(
+    [TitleComponent, ToolboxComponent, TooltipComponent, LegendComponent, FunnelChart, CanvasRenderer]
+  );
+
+
+  export default defineComponent({
     data() {
       return {
         url: [
@@ -60,8 +89,82 @@
           'https://mail.nwu.edu.cn/coremail/common/assets/index_cmxt50/img/mainBg3.jpg',
         ]
       }
+    },
+    setup: () => {
+      const option = ref({
+        tooltip: {
+          trigger: 'item',
+          formatter: "{a} <br/>{b} : {c}%"
+        },
+        toolbox: {
+          feature: {
+            dataView: {
+              readOnly: false
+            },
+            restore: {},
+            saveAsImage: {}
+          }
+        },
+        legend: {
+          data: ['A', 'C', 'B', ]
+        },
+
+        series: [{
+          type: 'funnel',
+          left: '10%',
+          top: 60,
+          //x2: 80,
+          bottom: 60,
+          width: '80%',
+          // height: {totalHeight} - y - y2,
+          min: 0,
+          max: 100,
+          minSize: '0%',
+          maxSize: '100%',
+          sort: 'ascending',
+          gap: 2,
+          label: {
+            show: true,
+            position: 'inside'
+          },
+          labelLine: {
+            length: 10,
+            lineStyle: {
+              width: 1,
+              type: 'solid'
+            }
+          },
+          itemStyle: {
+            borderColor: '#fff',
+            borderWidth: 1
+          },
+          emphasis: {
+            label: {
+              fontSize: 20
+            }
+          },
+          data: [{
+              value: 60,
+              name: 'A'
+            },
+            {
+              value: 40,
+              name: 'B'
+            },
+            {
+              value: 20,
+              name: 'C'
+            },
+          ]
+        }]
+
+      });
+
+      return {
+        option
+      };
     }
-  }
+  });
 </script>
 
 <style>
