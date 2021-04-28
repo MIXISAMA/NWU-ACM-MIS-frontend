@@ -19,8 +19,9 @@
                         </el-form-item>
                         <el-form-item label="活动类型" prop="region">
                             <el-select v-model="ruleForm.region" placeholder="请选择活动类型">
-                                <el-option label="正式赛" value="shanghai"></el-option>
-                                <el-option label="训练赛" value="beijing"></el-option>
+                                <el-option label="正式赛" value="contest"></el-option>
+                                <el-option label="训练赛" value="train"></el-option>
+                                <el-option label="专题授课" value="leason"></el-option>
                             </el-select>
                         </el-form-item>
                         <el-form-item label="活动时间" required>

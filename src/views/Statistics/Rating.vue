@@ -1,5 +1,15 @@
 <template>
-    <v-chart class="chart" :option="option" />
+    <el-container>
+        <el-header>
+            <el-select v-model="value" placeholder="请选择">
+                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                </el-option>
+            </el-select>
+        </el-header>
+        <el-main>
+            <v-chart class="chart" :option="option" />
+        </el-main>
+    </el-container>
 </template>
 
 <script>
@@ -35,6 +45,19 @@
     ]);
 
     export default defineComponent({
+        data() {
+            return {
+                options: [{
+                    value: '选项1',
+                    label: 'CodeForces'
+                }, {
+                    value: '选项2',
+                    label: 'TopCoder'
+                },
+                ],
+                value: ''
+            }
+        },
         components: {
             VChart
         },

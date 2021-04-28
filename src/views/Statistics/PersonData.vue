@@ -71,13 +71,18 @@
                 </el-col>
             </el-row>
         </el-main>
+        <el-footer>
+            <div class="block">
+                <el-pagination layout="prev, pager, next" :total="50" style="position:absolute;left:650px">
+                </el-pagination>
+            </div>
+        </el-footer>
     </el-container>
 </template>
 
 <style>
     .el-row {
         margin-bottom: 20px;
-
         &:last-child {
             margin-bottom: 0;
         }
