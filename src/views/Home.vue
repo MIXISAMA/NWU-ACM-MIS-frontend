@@ -30,12 +30,12 @@
           <el-button class="button" type="text">详情</el-button>
         </div>
       </template>
-      <div v-for="o in 3" :key="o" class="text item">{{'列表内容 ' + o }}</div>
+      <div v-for="o in 4" :key="o" class="text item">{{'列表内容 ' + o }}</div>
     </el-card>
     <!-- 添加Rating排序 -->
-    <!-- <div>
+    <div>
       <v-chart class="chart" :option="option" />
-    </div> -->
+    </div>
   </div>
   <div style="width:90%; margin:0 auto; float:left;margin-left:100px">
     <div class="box">
@@ -54,6 +54,7 @@
 </template>
 
 <script lang="ts">
+  import VChart from "vue-echarts";
   import {
     defineComponent,
     ref,
@@ -90,25 +91,20 @@
         ]
       }
     },
+    components: {
+      VChart
+    },
     setup: () => {
       const option = ref({
+        title: {
+          text: 'TopRating',
+          left: '10%',
+          top: '5%',
+        },
         tooltip: {
           trigger: 'item',
-          formatter: "{a} <br/>{b} : {c}%"
+          formatter: "{b} : {c}"
         },
-        toolbox: {
-          feature: {
-            dataView: {
-              readOnly: false
-            },
-            restore: {},
-            saveAsImage: {}
-          }
-        },
-        legend: {
-          data: ['A', 'C', 'B', ]
-        },
-
         series: [{
           type: 'funnel',
           left: '10%',
@@ -119,41 +115,42 @@
           // height: {totalHeight} - y - y2,
           min: 0,
           max: 100,
-          minSize: '0%',
+          minSize: '100%',
           maxSize: '100%',
-          sort: 'ascending',
+          sort: 'descending',
           gap: 2,
           label: {
             show: true,
-            position: 'inside'
+            position: 'center',
+            fontSize: 20
           },
           labelLine: {
             length: 10,
             lineStyle: {
-              width: 1,
+              width: 5,
               type: 'solid'
             }
           },
           itemStyle: {
             borderColor: '#fff',
-            borderWidth: 1
+            borderWidth: 4
           },
           emphasis: {
             label: {
-              fontSize: 20
+              fontSize: 30
             }
           },
           data: [{
-              value: 60,
-              name: 'A'
+              value: 1650,
+              name: 'Libm'
             },
             {
-              value: 40,
-              name: 'B'
+              value: 1600,
+              name: 'Mixi'
             },
             {
-              value: 20,
-              name: 'C'
+              value: 1520,
+              name: 'PeiGiZhu'
             },
           ]
         }]
@@ -219,5 +216,12 @@
 
   .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
+  }
+
+  .chart {
+    width: 480px;
+    height: 350px;
+    position: relative;
+    left: 57%;
   }
 </style>
