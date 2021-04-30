@@ -107,6 +107,10 @@
 
 <style scoped>
     .chart {
-        height: 400px;
+        height: 450px;
+        width: 800px;
+        position: absolute;
+        left: 25%;
+        top: 20%
     }
 </style>
