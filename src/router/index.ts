@@ -15,14 +15,15 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Publicity',
     component: () => import('../views/Publicity.vue')
   },
-  {
-    path: '/team',
-    name: 'Team',
-    component: () => import('../views/Team.vue')
-  },
+  // {
+  //   path: '/team',
+  //   name: 'Team',
+  //   component: () => impor../views/PersonDetail.vuevue')
+  // },
   {
     path: '/statistics',
     name: 'Statistics',
+    redirect: '/statistics/date-arrange',
     children: [
       {
         path: 'solve-problems',
@@ -39,6 +40,11 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: 'person-data',
         component: () => import('../views/Statistics/PersonData.vue')
+      },
+      {
+        name: 'person-detial',
+        path: 'person-data/:id',
+        component: () => import('../views/Statistics/PersonDetail.vue')
       }
     ],
     component: () => import('../views/Statistics.vue')
