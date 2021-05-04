@@ -2,7 +2,7 @@
   <router-link to="../person-data">
     <el-button type="botton" class="button">返回</el-button>
   </router-link>
-    <!-- <el-scrollbar > -->
+  <el-scrollbar style="height:100%">
     <el-row :gutter="20">
       <el-col :span="6">
         <div>
@@ -24,13 +24,21 @@
           专业:
         </div>
         <br />
+        <div>
+          联系邮箱:
+        </div>
+        <br />
+        <div>
+          所属队伍:
+        </div>
+        <br />
       </el-col>
     </el-row>
     <br /><br />
     <el-row>
       <v-chart class="chart" :option="option" />
     </el-row>
-  <!-- </el-scrollbar> -->
+    </el-scrollbar>
 </template>
 
 <style scoped>
@@ -47,15 +55,15 @@
 
   .el-scrollbar__wrap {
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
   }
 
   .chart {
     height: 400px;
     width: 1000px;
-    position: absolute;
+    position: relative;
     left: 0%;
-    top: 20%;
+    top: 0%;
   }
 </style>
 
@@ -106,7 +114,7 @@
     setup: () => {
       const option = ref({
         title: {
-          text: 'Rating Change',
+          text: 'CodeForce ID',
           left: '5%',
           top: '0%',
         },

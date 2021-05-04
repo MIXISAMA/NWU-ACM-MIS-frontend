@@ -42,6 +42,29 @@
             </template>
           </el-menu-item>
           </router-link>
+          
+          <!-- 扩充main区块可视内容 -->
+          <el-menu-item disabled>
+          </el-menu-item>
+          <el-menu-item disabled>
+          </el-menu-item>
+          <el-menu-item disabled>
+          </el-menu-item>
+          <el-menu-item disabled>
+          </el-menu-item>
+          <el-menu-item disabled>
+          </el-menu-item>
+          <el-menu-item disabled>
+          </el-menu-item>
+          <el-menu-item disabled>
+          </el-menu-item>
+          <el-menu-item disabled>
+          </el-menu-item>
+          <el-menu-item disabled>
+          </el-menu-item>
+          <el-menu-item disabled>
+          </el-menu-item>
+
         </el-menu>
       </el-col>
     </el-aside>
