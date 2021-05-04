@@ -1,6 +1,6 @@
 <template>
     <el-container>
-        <el-main style="position:fixed;left:250px;top:80px;height:600px">
+        <el-main style="position:fixed;left:250px;top:80px;width:100%">
             <el-button type="primary" @click="dialog = true">添加事件</el-button>
             <el-drawer title="添加事件" :before-close="handleClose" v-model="dialog" direction="rtl"
                 custom-class="demo-drawer" ref="drawer" style="width:40%">
