@@ -15,10 +15,10 @@
     <el-header style="border-bottom: 1px solid #dcdfe6;float: right;">
       <MainHeader/>
     </el-header>
-    <el-main>
+    <el-main style="height:100%">
       <router-view/>
     </el-main>
-    <el-footer>Footer</el-footer>
+    <!-- <el-footer>Footer</el-footer> -->
   </el-container>
 </template>
 

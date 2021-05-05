@@ -1,6 +1,6 @@
 <template>
     <el-container>
-        <el-main style="position:fixed;left:250px;top:80px;height:600px">
+        <el-header >
             <el-button type="primary" @click="dialog = true">添加事件</el-button>
             <el-drawer title="添加事件" :before-close="handleClose" v-model="dialog" direction="rtl"
                 custom-class="demo-drawer" ref="drawer" style="width:40%">
@@ -20,7 +20,8 @@
                         <el-form-item label="活动时间">
                             <el-col :span="11">
                                 <el-date-picker type="date" placeholder="选择日期" v-model="form.date1"
-                                    style="width: 100%;"></el-date-picker>
+                                    style="width: 100%;">
+                                </el-date-picker>
                             </el-col>
                             <el-col class="line" :span="2">-</el-col>
                             <el-col :span="11">
@@ -37,9 +38,10 @@
                     </div>
                 </div>
             </el-drawer>
+        </el-header>
+        <el-main >
             <!-- echart日历 暂时不能显示 -->
             <v-chart class="chart" :option="option" />
-
         </el-main>
     </el-container>
 </template>
@@ -47,7 +49,7 @@
 <style scoped>
     .demo-drawer__footer {
         position: relative;
-        left: 230px;
+        left: 160px;
         top: 10px;
     }
 
