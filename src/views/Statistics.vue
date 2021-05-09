@@ -42,7 +42,14 @@
             </template>
           </el-menu-item>
           </router-link>
-          
+          <router-link to="/statistics/train" class="router-link-activate">
+          <el-menu-item index="4">
+            <i class="el-icon-s-claim"></i>
+            <template #title>
+              训练赛
+            </template>
+          </el-menu-item>
+          </router-link>
           <!-- 扩充main区块可视内容 -->
           <el-menu-item disabled>
           </el-menu-item>

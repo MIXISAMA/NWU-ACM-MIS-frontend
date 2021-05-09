@@ -2,14 +2,14 @@
     <el-container>
         <el-main>
             <!-- echart日历 暂时不能显示 -->
-            <!-- <v-chart class="chart" :option="option" /> -->
-            <el-calendar>
+            <v-chart class="chart" :option="option" />
+            <!-- <el-calendar>
                 <template #dateCell="{data}">
                     <p :class="data.isSelected ? 'is-selected' : ''">
                         {{ data.day.split('-').slice(1).join('-') }} {{ data.isSelected ? '✔️' : '' }}
                     </p>
                 </template>
-            </el-calendar>
+            </el-calendar> -->
         </el-main>
     </el-container>
 </template>
