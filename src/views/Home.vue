@@ -1,56 +1,38 @@
 <template>
   <p class="p">Welcome to NWU ACM</p>
-  <div>
-    <div class="block" style="width:50%;float:left;margin-right:10%;">
-      <el-timeline>
-        <el-timeline-item timestamp="2018/4/12" placement="top">
-          <el-card>
-            <h4>我是废物中的战斗机</h4>
-            <p>Kele 提交于 2021/4/22 14:51</p>
-          </el-card>
-        </el-timeline-item>
-        <el-timeline-item timestamp="2018/4/3" placement="top">
-          <el-card>
-            <h4>更新 Github 模板</h4>
-            <p>王小虎 提交于 2018/4/3 20:46</p>
-          </el-card>
-        </el-timeline-item>
-        <el-timeline-item timestamp="2018/4/2" placement="top">
-          <el-card>
-            <h4>更新 Github 模板</h4>
-            <p>王小虎 提交于 2018/4/2 20:46</p>
-          </el-card>
-        </el-timeline-item>
-      </el-timeline>
-    </div>
-    <el-card class="box-card" style="width:30%;margin-top:20px;">
+
+  <div class="block" style="margin-left:5%;margin-top:3%;width:30%;float:left;">
+    <el-card>
       <template #header>
         <div class="card-header">
           <span>公告</span>
-          <el-button class="button" type="text">详情</el-button>
+          <router-link to="/publicity">
+            <el-button class="button" type="text">详情</el-button>
+          </router-link>
         </div>
       </template>
-      <div v-for="o in 4" :key="o" class="text item">{{'列表内容 ' + o }}</div>
+      <div v-for="o in 4" :key="o" class="text item">{{'公告标题 ' + o }}</div>
     </el-card>
-    <!-- 添加Rating排序 -->
+  </div>
+
+  <div>
+    <p style="float:left; font-weight:bold;font-size:26px;margin-left:29%;">Top Rating</p>
+    <router-link to="/statistic/rating">
+      <el-button class="button" type="text" style="font-size:16px;margin-left:11%;margin-top:2%;">完整榜单</el-button>
+    </router-link>
     <div>
       <v-chart class="chart" :option="option" />
     </div>
   </div>
-  <div style="width:90%; margin:0 auto; float:left;margin-left:100px">
-    <div class="box">
-      <span class="line"></span>
-      <span class="line"></span>
-    </div>
-    <br>
-    <el-carousel :interval="4000" type="card" width="100%" height="300px">
-      <el-carousel-item v-for="item in 4" :key="item">
-        <h3 class="medium">
-          <el-image style="width: 100%; height: 300px;" :src="url[item - 1]" :fit="fit"></el-image>
-        </h3>
-      </el-carousel-item>
-    </el-carousel>
-  </div>
+
+  <el-carousel :interval="4000" type="card" style="margin-top:10%;margin-left:8%;width:80%;">
+    <el-carousel-item v-for="item in 4" :key="item">
+      <h3 class="medium">
+        <el-image style="width:100%;" :src="url[item - 1]" :fit="fit"></el-image>
+      </h3>
+    </el-carousel-item>
+  </el-carousel>
+
 </template>
 
 <script lang="ts">
@@ -96,11 +78,6 @@
     },
     setup: () => {
       const option = ref({
-        title: {
-          text: 'TopRating',
-          left: '10%',
-          top: '5%',
-        },
         tooltip: {
           trigger: 'item',
           formatter: "{b} : {c}"
@@ -108,7 +85,7 @@
         series: [{
           type: 'funnel',
           left: '10%',
-          top: 60,
+          top: 25,
           //x2: 80,
           bottom: 60,
           width: '80%',
@@ -141,16 +118,32 @@
             }
           },
           data: [{
+              value: 1900,
+              name: 'zytxdy'
+            },
+            {
+              value: 1800,
+              name: 'Kele'
+            },
+            {
+              value: 1700,
+              name: 'XiaoyuHan'
+            },
+            {
+              value: 1600,
+              name: 'Helloword'
+            },
+            {
               value: 1650,
               name: 'Libm'
             },
             {
-              value: 1600,
-              name: 'Mixi'
+              value: 1670,
+              name: 'ZhuJiu'
             },
             {
-              value: 1520,
-              name: 'PeiGiZhu'
+              value: 1680,
+              name: 'Mixi'
             },
           ]
         }]
@@ -165,18 +158,6 @@
 </script>
 
 <style>
-  .box {
-    height: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .line {
-    height: 1px;
-    flex-grow: 1;
-    background-color: #eaeaea;
-  }
 
   .card-header {
     display: flex;
@@ -192,12 +173,8 @@
     margin-bottom: 18px;
   }
 
-  .box-card {
-    width: 480px;
-  }
-
   .p {
-    font-size: 50px;
+    font-size: 300%;
     text-align: center;
     font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -219,9 +196,8 @@
   }
 
   .chart {
-    width: 480px;
-    height: 350px;
-    position: relative;
-    left: 57%;
+    width: 500px;
+    height: 500px;
+    margin-left:61%;
   }
 </style>
