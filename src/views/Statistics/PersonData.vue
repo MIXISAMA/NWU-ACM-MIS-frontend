@@ -1,54 +1,85 @@
 <template>
     <el-container>
         <el-main>
-            <el-row :span="6" v-for="(x, index) in 3" :key="x" :offset="index > 0 ? 2 : 0">
-                <el-col :span="6" v-for="(o, index) in 3" :key="o" :offset="index > 0 ? 2 : 0">
-                    <el-card :body-style="{ padding: '0px' }" shadow="hover">
-                        <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-                            class="image">
-                        <div style="padding: 10px;">
-                            <span>Name:</span><br/>
-                            <span>MaxRating:</span>
-                            <div class="bottom">
-                                <router-link to="person-data/1"><el-button type="text" class="button">详细信息</el-button></router-link>
-                            </div>
-                        </div>
-                    </el-card>
-                    <br/><br/>
-                </el-col>
-            </el-row>
+            <el-table :data="tableData" style="width: 100%" :row-class-name="tableRowClassName">
+                <el-table-column prop="department" label="专业" width="180">
+                </el-table-column>
+                <el-table-column prop="name" label="姓名" width="180">
+                </el-table-column>
+                <el-table-column prop="studentID" label="学号" width="180">
+                </el-table-column>
+                <el-table-column prop="rating" label="Rating" width="180">
+                </el-table-column>
+                <el-table-column fixed="right" label="操作" width="100">
+                    <template #default="scope">
+                        <el-button @click="handleClick(scope.row)" type="text">查看</el-button>
+                    </template>
+                </el-table-column>
+            </el-table>
         </el-main>
-        <el-footer>
-            <div class="block">
-                <el-pagination layout="prev, pager, next" :total="50" >
-                </el-pagination>
-            </div>
-        </el-footer>
     </el-container>
 </template>
 
 
 <style>
-  
-  .bottom {
-    margin-top: 10px;
-    line-height: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+    .el-table .novice-row {
+        background: rgb(179, 247, 173);
+    }
 
-  .button {
-    padding: 10;
-    min-height: auto;
-  }
+    .el-table .ad-row {
+        background: #d7def7;
+    }
 
-  .image {
-    width: 100%;
-    display: block;
-  }
+    .el-table .retired-row {
+        background: #ecc886;
+    }
 </style>
 
 <script scope>
+    export default {
+        methods: {
+            tableRowClassName({
+                row,
+                rowIndex
+            }) {
+                if (rowIndex === 1) {
+                    return 'retired-row';
+                } else if (rowIndex === 3) {
+                    return 'novice-row';
+                }
+                return 'ad-row';
+            },
+            handleClick(row) {
+                console.log(row);
+                this.$router.push({ path: 'person-data/'+ row.studentID});
+            }
+        },
+        data() {
+            return {
+                tableData: [{
+                        department: '软工',
+                        name: '张钧博',
+                        studentID: '2018xxxxxx',
+                        rating: '1800',
+                    }, {
+                        department: '软工',
+                        name: '张钧博',
+                        studentID: '2018xxxxxx',
+                        rating: '1800',
+                    }, {
+                        department: '软工',
+                        name: '张钧博',
+                        studentID: '2018xxxxxx',
+                        rating: '1800',
+                    }, {
+                        department: '软工',
+                        name: '张钧博',
+                        studentID: '2018xxxxxx',
+                        rating: '1800',
+                    },
 
+                ]
+            }
+        }
+    }
 </script>

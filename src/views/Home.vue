@@ -17,7 +17,7 @@
 
   <div>
     <p style="float:left; font-weight:bold;font-size:26px;margin-left:29%;">Top Rating</p>
-    <router-link to="/statistic/rating">
+    <router-link to="/statistics/rating">
       <el-button class="button" type="text" style="font-size:16px;margin-left:11%;margin-top:2%;">完整榜单</el-button>
     </router-link>
     <div>
@@ -35,7 +35,7 @@
 
 </template>
 
-<script lang="ts">
+<script>
   import VChart from "vue-echarts";
   import {
     defineComponent,
@@ -157,7 +157,7 @@
   });
 </script>
 
-<style>
+<style scoped>
 
   .card-header {
     display: flex;
