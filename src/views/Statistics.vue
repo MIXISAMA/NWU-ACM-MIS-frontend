@@ -28,7 +28,7 @@
           </el-submenu>
           <router-link to="/statistics/date-arrange" class="router-link-activate">
           <el-menu-item index="2">
-            <i class="el-icon-menu"></i>
+            <i class="el-icon-date"></i>
             <template #title>
               训练日程
             </template>
@@ -42,7 +42,14 @@
             </template>
           </el-menu-item>
           </router-link>
-          
+          <router-link to="/statistics/train" class="router-link-activate">
+          <el-menu-item index="4">
+            <i class="el-icon-s-claim"></i>
+            <template #title>
+              训练赛
+            </template>
+          </el-menu-item>
+          </router-link>
           <!-- 扩充main区块可视内容 -->
           <el-menu-item disabled>
           </el-menu-item>

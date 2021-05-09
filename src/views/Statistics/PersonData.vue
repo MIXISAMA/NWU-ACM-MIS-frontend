@@ -7,7 +7,8 @@
                         <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
                             class="image">
                         <div style="padding: 10px;">
-                            <span>Name</span>
+                            <span>Name:</span><br/>
+                            <span>MaxRating:</span>
                             <div class="bottom">
                                 <router-link to="person-data/1"><el-button type="text" class="button">详细信息</el-button></router-link>
                             </div>
@@ -19,7 +20,7 @@
         </el-main>
         <el-footer>
             <div class="block">
-                <el-pagination layout="prev, pager, next" :total="50" style="position:absolute;left:650px">
+                <el-pagination layout="prev, pager, next" :total="50" >
                 </el-pagination>
             </div>
         </el-footer>

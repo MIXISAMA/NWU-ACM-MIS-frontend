@@ -49,10 +49,10 @@
             return {
                 options: [{
                     value: '选项1',
-                    label: 'CodeForces'
+                    label: '当前最高'
                 }, {
                     value: '选项2',
-                    label: 'TopCoder'
+                    label: '历史最高'
                 },
                 ],
                 value: ''
