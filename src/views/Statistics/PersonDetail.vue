@@ -46,7 +46,7 @@
     font-size: 15px;
     position: absolute;
     left: 90%;
-    top: 15%
+    top: 12%
   }
 
   .el-scrollbar__thumb {
