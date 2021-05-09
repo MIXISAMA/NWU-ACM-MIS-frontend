@@ -27,7 +27,9 @@
       <template #header>
         <div class="card-header">
           <span>公告</span>
+          <router-link to="/publicity">
           <el-button class="button" type="text">详情</el-button>
+          </router-link>
         </div>
       </template>
       <div v-for="o in 4" :key="o" class="text item">{{'列表内容 ' + o }}</div>

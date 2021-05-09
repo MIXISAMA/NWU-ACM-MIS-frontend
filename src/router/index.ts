@@ -15,11 +15,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Publicity',
     component: () => import('../views/Publicity.vue')
   },
-  // {
-  //   path: '/team',
-  //   name: 'Team',
-  //   component: () => impor../views/PersonDetail.vuevue')
-  // },
+  {
+    path: '/train',
+    name: 'Train',
+    component: () => import('../views/Train.vue')
+  },
   {
     path: '/statistics',
     name: 'Statistics',

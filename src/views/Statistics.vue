@@ -28,7 +28,7 @@
           </el-submenu>
           <router-link to="/statistics/date-arrange" class="router-link-activate">
           <el-menu-item index="2">
-            <i class="el-icon-menu"></i>
+            <i class="el-icon-date"></i>
             <template #title>
               训练日程
             </template>

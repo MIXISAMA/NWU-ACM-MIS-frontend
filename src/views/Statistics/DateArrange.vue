@@ -1,69 +1,30 @@
 <template>
     <el-container>
-        <el-header >
-            <el-button type="primary" @click="dialog = true">添加事件</el-button>
-            <el-drawer title="添加事件" :before-close="handleClose" v-model="dialog" direction="rtl"
-                custom-class="demo-drawer" ref="drawer" style="width:40%">
-                <div class="demo-drawer__content">
-                    <el-form ref="form" :model="form" label-width="80px">
-
-                        <el-form-item label="活动名称">
-                            <el-input v-model="form.name"></el-input>
-                        </el-form-item>
-                        <el-form-item label="活动性质">
-                            <el-select v-model="form.region" placeholder="请选择活动性质">
-                                <el-option label="训练赛" value="train"></el-option>
-                                <el-option label="正式赛" value="contest"></el-option>
-                                <el-option label="专题讲课" value="lesson"></el-option>
-                            </el-select>
-                        </el-form-item>
-                        <el-form-item label="活动时间">
-                            <el-col :span="11">
-                                <el-date-picker type="date" placeholder="选择日期" v-model="form.date1"
-                                    style="width: 100%;">
-                                </el-date-picker>
-                            </el-col>
-                            <el-col class="line" :span="2">-</el-col>
-                            <el-col :span="11">
-                                <el-time-picker placeholder="选择时间" v-model="form.date2" style="width: 100%;">
-                                </el-time-picker>
-                            </el-col>
-                        </el-form-item>
-
-                    </el-form>
-                    <div class="demo-drawer__footer">
-                        <el-button @click="cancelForm">取 消</el-button>
-                        <el-button type="primary" @click="$refs.drawer.closeDrawer()" :loading="loading">
-                            {{ loading ? '提交中 ...' : '确 定' }}</el-button>
-                    </div>
-                </div>
-            </el-drawer>
-        </el-header>
-        <el-main >
+        <el-main>
             <!-- echart日历 暂时不能显示 -->
-            <v-chart class="chart" :option="option" />
+            <!-- <v-chart class="chart" :option="option" /> -->
+            <el-calendar>
+                <template #dateCell="{data}">
+                    <p :class="data.isSelected ? 'is-selected' : ''">
+                        {{ data.day.split('-').slice(1).join('-') }} {{ data.isSelected ? '✔️' : '' }}
+                    </p>
+                </template>
+            </el-calendar>
         </el-main>
     </el-container>
 </template>
 
 <style scoped>
-    .demo-drawer__footer {
-        position: relative;
-        left: 160px;
-        top: 10px;
-    }
-
-    .demo-drawer__content {
-        max-width: 380px;
-        left: 10px;
-    }
-
     .chart {
         height: 450px;
         width: 800px;
         position: absolute;
         left: 25%;
         top: 20%
+    }
+
+    .is-selected {
+        color: #1989FA;
     }
 </style>
 
@@ -88,6 +49,7 @@
     );
 
     export default defineComponent({
+
         ///以下为echart日历
         setup: () => {
             var layouts = [
@@ -119,8 +81,10 @@
             var colors = [
                 '#c4332b', '#16B644', '#6862FD', '#FDC763'
             ];
+            // var chartDom = document.getElementById('main');
+            // var myChart = echarts.init(chartDom);
 
-            function getVirtulData(year) {
+            function getVirtulData(year){
                 year = year || '2017';
                 var date = +echarts.number.parseDate(year + '-01-01');
                 var end = +echarts.number.parseDate((+year + 1) + '-01-01');
@@ -195,7 +159,7 @@
                 return group;
             }
 
-            const option = ref({
+            const option =ref({
                 tooltip: {},
                 calendar: [{
                     left: 'center',
@@ -225,50 +189,13 @@
                 }]
 
             });
-
+            // option && myChart.setOption(option);
             return {
-                option
+                option,
+                getVirtulData,
+                renderItem,
             };
         },
         ///以上为echart日历
-        data() {
-            return {
-                table: false,
-                dialog: false,
-                loading: false,
-                form: {
-                    name: '',
-                    region: '',
-                    date1: '',
-                    date2: '',
-                },
-                formLabelWidth: '80px',
-                timer: null,
-            }
-        },
-        methods: {
-            handleClose(done) {
-                if (this.loading) {
-                    return;
-                }
-                this.$confirm('确定要提交信息吗？')
-                    .then(_ => {
-                        this.loading = true;
-                        this.timer = setTimeout(() => {
-                            done();
-                            // 动画关闭需要一定的时间
-                            setTimeout(() => {
-                                this.loading = false;
-                            }, 400);
-                        }, 2000);
-                    })
-                // .catch(_ => {});
-            },
-            cancelForm() {
-                this.loading = false;
-                this.dialog = false;
-                clearTimeout(this.timer);
-            }
-        }
     })
 </script>
