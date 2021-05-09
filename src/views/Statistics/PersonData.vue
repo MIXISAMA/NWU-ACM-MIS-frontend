@@ -10,7 +10,7 @@
                 </el-table-column>
                 <el-table-column prop="rating" label="Rating" width="180">
                 </el-table-column>
-                <el-table-column fixed="right" label="操作" width="100">
+                <el-table-column fixed="right" label="操作">
                     <template #default="scope">
                         <el-button @click="handleClick(scope.row)" type="text">查看</el-button>
                     </template>
