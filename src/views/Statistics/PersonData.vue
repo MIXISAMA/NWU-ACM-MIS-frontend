@@ -1,7 +1,7 @@
 <template>
     <el-container>
         <el-main>
-            <el-table :data="tableData" style="width: 100%" :row-class-name="tableRowClassName">
+            <el-table :data="tableData" style="width: 90%" :row-class-name="tableRowClassName">
                 <el-table-column prop="department" label="专业" width="180">
                 </el-table-column>
                 <el-table-column prop="name" label="姓名" width="180">
@@ -10,7 +10,7 @@
                 </el-table-column>
                 <el-table-column prop="rating" label="Rating" width="180">
                 </el-table-column>
-                <el-table-column fixed="right" label="操作" width="100">
+                <el-table-column label="操作">
                     <template #default="scope">
                         <el-button @click="handleClick(scope.row)" type="text">查看</el-button>
                     </template>
@@ -51,7 +51,7 @@
             },
             handleClick(row) {
                 console.log(row);
-                this.$router.push({ path: 'person-data/'+ row.studentID});
+                this.$router.push({ path: '../'+ row.studentID});
             }
         },
         data() {
