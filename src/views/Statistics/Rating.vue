@@ -55,7 +55,7 @@
                     label: '历史最高'
                 },
                 ],
-                value: ''
+                value: '选项1'
             }
         },
         components: {
