@@ -1,44 +1,31 @@
 <template>
-  <router-link to="../person-data">
-    <el-button type="botton" class="button">返回</el-button>
-  </router-link>
   <el-scrollbar style="height:100%">
-    <el-row :gutter="20">
-      <el-col :span="6">
+    <el-row :gutter="20" style="position:relative;margin-left:10%;margin-top:5%">
+      <el-col :span="6" >
         <div>
-          <el-avatar shape="square" :size="200" fit="fill"
-            src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg">
-          </el-avatar>
+          <el-badge value="new" class="item">
+            <el-avatar shape="square" :size="220" fit="fill"
+              src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg">
+            </el-avatar>
+          </el-badge>
         </div>
       </el-col>
       <el-col :span="6">
-        <div>
-          姓名:
-        </div>
-        <br />
-        <div>
-          学号:
-        </div>
-        <br />
-        <div>
-          专业:
-        </div>
-        <br />
-        <div>
-          联系邮箱:
-        </div>
-        <br />
-        <div>
-          所属队伍:
-        </div>
-        <br />
+        <el-descriptions title="姓名">
+          <el-descriptions-item label="专业" :span="5">软工</el-descriptions-item>
+          <el-descriptions-item label="学号" :span="5">2018117XXX</el-descriptions-item>
+          <el-descriptions-item label="CF ID" :span="5">Mixi</el-descriptions-item>
+          <el-descriptions-item label="刷题量" :span="5">600</el-descriptions-item>
+          <el-descriptions-item label="所属队伍" :span="5">纸片人</el-descriptions-item>
+          <el-descriptions-item label="联系邮箱" :span="5">XXXX@qq.com</el-descriptions-item>
+        </el-descriptions>
       </el-col>
     </el-row>
     <br /><br />
-    <el-row>
+    <el-row style="position:relative;margin-left:6%">
       <v-chart class="chart" :option="option" />
     </el-row>
-    </el-scrollbar>
+  </el-scrollbar>
 </template>
 
 <style scoped>
@@ -46,7 +33,7 @@
     font-size: 15px;
     position: absolute;
     left: 90%;
-    top: 12%
+    top: 10%
   }
 
   .el-scrollbar__thumb {
@@ -60,7 +47,7 @@
 
   .chart {
     height: 400px;
-    width: 1000px;
+    width: 1200px;
     position: relative;
     left: 0%;
     top: 0%;
@@ -114,7 +101,7 @@
     setup: () => {
       const option = ref({
         title: {
-          text: 'CodeForce ID',
+          text: 'CodeForce Rating',
           left: '5%',
           top: '0%',
         },

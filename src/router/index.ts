@@ -21,6 +21,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/Team.vue')
   },
   {
+    path: '/:id',
+    name: 'person-detial',
+    component: () => import('../views/PersonDetail.vue')
+  },
+  {
     path: '/statistics',
     name: 'Statistics',
     redirect: '/statistics/date-arrange',
@@ -40,11 +45,6 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: 'person-data',
         component: () => import('../views/Statistics/PersonData.vue')
-      },
-      {
-        name: 'person-detial',
-        path: 'person-data/:id',
-        component: () => import('../views/Statistics/PersonDetail.vue')
       },
       {
         path: 'train',
