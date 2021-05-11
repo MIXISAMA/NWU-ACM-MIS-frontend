@@ -23,11 +23,11 @@
 
 <style>
   .el-table .next-row {
-    background: rgb(179, 247, 173);
+    background: rgb(229, 252, 227);
   }
 
   .el-table .finished-row {
-    background: #ecc886;
+    background: #f7ebd6;
   }
 </style>
 
@@ -46,7 +46,7 @@
       handleClick(row) {
         console.log(row);
         this.$router.push({
-          path: 'train/' + row.title
+          path: '/statistics/train/' + row.title
         });
       }
     },

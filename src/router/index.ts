@@ -51,8 +51,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('../views/Statistics/Train.vue')
       },
       {
-        name: 'train-detial',
         path: 'train/:title',
+        name: 'train-detial',
         component: () => import('../views/Statistics/TrainDetail.vue')
       },
     ],
