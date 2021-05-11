@@ -23,15 +23,15 @@
 
 <style>
     .el-table .novice-row {
-        background: rgb(179, 247, 173);
+        background: rgb(220, 245, 218);
     }
 
     .el-table .ad-row {
-        background: #d7def7;
+        background: #e6eaf8;
     }
 
     .el-table .retired-row {
-        background: #ecc886;
+        background: #f5edde;
     }
 </style>
 
@@ -59,12 +59,12 @@
                 tableData: [{
                         department: '软工',
                         name: '张钧博',
-                        studentID: '2018xxxxxx',
+                        studentID: '20181xxxxx',
                         rating: '1800',
                     }, {
                         department: '软工',
                         name: '张钧博',
-                        studentID: '2018xxxxxx',
+                        studentID: '20182xxxxx',
                         rating: '1800',
                     }, {
                         department: '软工',

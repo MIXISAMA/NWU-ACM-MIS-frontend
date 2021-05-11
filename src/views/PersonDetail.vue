@@ -1,29 +1,30 @@
 <template>
   <el-scrollbar style="height:100%">
-    <el-row :gutter="20" style="position:relative;margin-left:10%;margin-top:5%">
-      <el-col :span="6" >
-        <div>
-          <el-badge value="new" class="item">
-            <el-avatar shape="square" :size="220" fit="fill"
+    <el-row >
+      <el-col :span="6">
+        <el-row style="position:relative;margin-left:15%;margin-top:3%">
+          <div>
+            <el-avatar shape="circle" :size="220" fit="fill"
               src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg">
             </el-avatar>
-          </el-badge>
-        </div>
+            <el-badge :value="Person.attribute" class="item"></el-badge>
+          </div>
+        </el-row>
+        <el-divider></el-divider>
+        <el-row style="position:relative;margin-left:15%;margin-top:0%">
+          <el-descriptions :title="Person.name">
+            <el-descriptions-item label="专业" :span="5">{{Person.department}}</el-descriptions-item>
+            <el-descriptions-item label="学号" :span="5">{{Person.studentID}}</el-descriptions-item>
+            <el-descriptions-item label="CFID" :span="5">{{Person.codeforceID}}</el-descriptions-item>
+            <el-descriptions-item label="刷题量" :span="5">{{Person.solveproblems}}</el-descriptions-item>
+            <el-descriptions-item label="所属队伍" :span="5">{{Person.team}}</el-descriptions-item>
+            <el-descriptions-item label="联系邮箱" :span="5">{{Person.email}}</el-descriptions-item>
+          </el-descriptions>
+        </el-row>
       </el-col>
       <el-col :span="6">
-        <el-descriptions title="姓名">
-          <el-descriptions-item label="专业" :span="5">软工</el-descriptions-item>
-          <el-descriptions-item label="学号" :span="5">2018117XXX</el-descriptions-item>
-          <el-descriptions-item label="CF ID" :span="5">Mixi</el-descriptions-item>
-          <el-descriptions-item label="刷题量" :span="5">600</el-descriptions-item>
-          <el-descriptions-item label="所属队伍" :span="5">纸片人</el-descriptions-item>
-          <el-descriptions-item label="联系邮箱" :span="5">XXXX@qq.com</el-descriptions-item>
-        </el-descriptions>
+        <v-chart class="chart" :option="option" />
       </el-col>
-    </el-row>
-    <br /><br />
-    <el-row style="position:relative;margin-left:6%">
-      <v-chart class="chart" :option="option" />
     </el-row>
   </el-scrollbar>
 </template>
@@ -47,10 +48,16 @@
 
   .chart {
     height: 400px;
-    width: 1200px;
+    width: 900px;
     position: relative;
     left: 0%;
     top: 0%;
+  }
+
+  .item {
+    position: relative;
+    margin-top: 0%;
+    margin-right: 100%;
   }
 </style>
 
@@ -87,6 +94,20 @@
   ]);
 
   export default defineComponent({
+    data() {
+      return {
+        Person: {
+          name: '朱旭琦',
+          department: '软工',
+          studentID: '2018117384',
+          codeforceID: 'PeiGiZhu',
+          solveproblems: '500',
+          team: 'PaperMan',
+          email: 'zxq@qq.com',
+          attribute: 'new'
+        },
+      }
+    },
     methods: {
       goBack() {
         console.log('go back');

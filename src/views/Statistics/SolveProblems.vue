@@ -55,7 +55,7 @@
                     label: 'Vjudge'
                 },
                 ],
-                value: ''
+                value: '选项1'
             }
         },
         components: {
