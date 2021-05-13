@@ -1,44 +1,58 @@
 <template>
-  <p class="title">Welcome to NWU ACM</p>
-  <el-card class="box-card">
-    <template #header>
-      <div class="card-header">
-        <span style="font-size:150%; font-weight:bold;">公 告 板</span>
+  <el-row>
+    <p class="title">Welcome to NWU ACM.</p>
+    <router-link to="/publicity">
+      <el-button style="margin-top:15%;margin-left:15%;" round>关于我们</el-button>
+    </router-link>
+  </el-row>
+  <el-row>
+    <el-card class="box-card">
+      <template #header>
+        <div class="card-header">
+          <span style="font-size:150%; font-weight:bold;">公 告 板</span>
+          <router-link to="/publicity">
+            <el-button style="margin-left:60%;" class="button" type="text">查看所有</el-button>
+          </router-link>
+        </div>
+      </template>
+      <div class="text">
         <router-link to="/publicity">
-          <el-button style="margin-left:60%;" class="button" type="text">查看所有</el-button>
+          <el-button style="margin-left: 2%; font-size:15px;" class="button" type="text">2021.05.03 训练情况公告</el-button>
         </router-link>
       </div>
-    </template>
-    <div class="text">
-      <router-link to="/publicity">
-          <el-button style="margin-left: 3%" class="button" type="text">2021.05.03 训练公告</el-button>
-      </router-link>
+      <div class="text">
+        <router-link to="/publicity">
+          <el-button style="margin-left: 2%; font-size:15px;" class="button" type="text">2021.05.03 训练情况公告</el-button>
+        </router-link>
+      </div>
+      <div class="text">
+        <router-link to="/publicity">
+          <el-button style="margin-left: 2%; font-size:15px;" class="button" type="text">2021.05.03 训练情况公告</el-button>
+        </router-link>
+      </div>
+      <div class="text">
+        <router-link to="/publicity">
+          <el-button style="margin-left: 2%; font-size:15px;" class="button" type="text">2021.05.03 训练情况公告</el-button>
+        </router-link>
+      </div>
+    </el-card>
+    <div style="width: 28%; min-width: 220px;">
+      <el-row>
+        <p style="font-size:20px;font-weight:bold;margin-top:0%;">Codeforces Top Rating</p>
+        <router-link to="/publicity">
+          <el-button style="margin-left: 35%; font-size:13px;" round>完整榜单</el-button>
+        </router-link>
+      </el-row>
+      <el-table :data="tableData" stripe class="rank">
+        <el-table-column prop="rank" label="排名" width="80px">
+        </el-table-column>
+        <el-table-column prop="name" label="ID" width="150px">
+        </el-table-column>
+        <el-table-column prop="score" label="分数">
+        </el-table-column>
+      </el-table>
     </div>
-    <div class="text">
-      <router-link to="/publicity">
-          <el-button style="margin-left: 3%;" class="button" type="text">2021.05.03 训练公告</el-button>
-      </router-link>
-    </div>
-    <div class="text">
-      <router-link to="/publicity">
-          <el-button style="margin-left: 3%;" class="button" type="text">2021.05.03 训练公告</el-button>
-      </router-link>
-    </div>
-    <div class="text">
-      <router-link to="/publicity">
-          <el-button style="margin-left: 3%;" class="button" type="text">2021.05.03 训练公告</el-button>
-      </router-link>
-    </div>
-  </el-card>
-
-  <el-table :data="tableData" stripe class="rank">
-    <el-table-column prop="rank" label="排名" width="80px">
-    </el-table-column>
-    <el-table-column prop="name" label="ID" width="150px">
-    </el-table-column>
-    <el-table-column prop="score" label="分数">
-    </el-table-column>
-  </el-table>
+  </el-row>
 </template>
 
 <script>
@@ -76,13 +90,9 @@
 </script>
 
 <style scoped>
-  .text {
-    font-size: 15px;
-  }
-
   .title {
     margin-top: 1%;
-    margin-left: 3%;
+    margin-left: 5%;
     font-size: 180%;
     font-weight: bold;
   }
@@ -98,19 +108,19 @@
     clear: both
   }
 
-  .box-card {  
-    margin-left: 3%;
+  .box-card {
+    margin-left: 5%;
+    margin-right: 32%;
     margin-top: 2%;
-    float: left;
-    width:30%;
-    min-width:406px;
+    width: 25%;
+    min-width: 405px;
+    height: 15%;
   }
 
   .rank {
-    width:25%;
-    min-width: 200px;
-    margin-left: 70%;
-    margin-top: 2%;
+    width: 70%;
+    margin-top: 3%;
     border: 3px solid rgba(122, 119, 119, 0.034);
+    min-width: 230px;
   }
 </style>
