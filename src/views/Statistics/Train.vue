@@ -46,7 +46,7 @@
       handleClick(row) {
         console.log(row);
         this.$router.push({
-          path: '/statistics/train/' + row.title
+          path: '/train/' + row.title
         });
       }
     },

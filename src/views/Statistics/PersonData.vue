@@ -51,7 +51,7 @@
             },
             handleClick(row) {
                 console.log(row);
-                this.$router.push({ path: '../'+ row.studentID});
+                this.$router.push({ path: '/person-data/'+ row.studentID});
             }
         },
         data() {
