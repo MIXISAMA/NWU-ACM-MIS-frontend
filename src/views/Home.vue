@@ -16,30 +16,34 @@
         </div>
       </template>
       <div class="text">
+        {{publicity[0].time}}
         <router-link to="/publicity">
-          <el-button style="margin-left: 2%; font-size:15px;" class="button" type="text">2021.05.03 训练情况公告</el-button>
+          <el-button style="margin-left: 2%; font-size:15px;" class="button" type="text">{{publicity[0].title}}</el-button>
         </router-link>
       </div>
       <div class="text">
+        {{publicity[1].time}}
         <router-link to="/publicity">
-          <el-button style="margin-left: 2%; font-size:15px;" class="button" type="text">2021.05.03 训练情况公告</el-button>
+          <el-button style="margin-left: 2%; font-size:15px;" class="button" type="text">{{publicity[1].title}}</el-button>
         </router-link>
       </div>
       <div class="text">
+        {{publicity[2].time}}
         <router-link to="/publicity">
-          <el-button style="margin-left: 2%; font-size:15px;" class="button" type="text">2021.05.03 训练情况公告</el-button>
+          <el-button style="margin-left: 2%; font-size:15px;" class="button" type="text">{{publicity[2].title}}</el-button>
         </router-link>
       </div>
       <div class="text">
+        {{publicity[3].time}}
         <router-link to="/publicity">
-          <el-button style="margin-left: 2%; font-size:15px;" class="button" type="text">2021.05.03 训练情况公告</el-button>
+          <el-button style="margin-left: 2%; font-size:15px;" class="button" type="text">{{publicity[3].title}}</el-button>
         </router-link>
       </div>
     </el-card>
     <div style="width: 28%; min-width: 220px;">
       <el-row>
         <p style="font-size:20px;font-weight:bold;margin-top:0%;">Codeforces Top Rating</p>
-        <router-link to="/publicity">
+        <router-link to="/statistics/rating">
           <el-button style="margin-left: 35%; font-size:13px;" round>完整榜单</el-button>
         </router-link>
       </el-row>
@@ -83,7 +87,20 @@
           rank: '6',
           name: 'ZhuJiu',
           score: '1400'
-        }]
+        }],
+        publicity:[{
+          time: '2020-01-01',
+          title: '公告1',
+        },{
+          time: '2020-02-01',
+          title: '公告2',
+        },{
+          time: '2020-03-01',
+          title: '公告3',
+        },{
+          time: '2020-04-01',
+          title: '公告4',
+        }],
       }
     }
   }
