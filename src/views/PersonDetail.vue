@@ -1,16 +1,18 @@
 <template>
   <el-scrollbar style="height:100%">
-    <el-row >
+    <el-row>
       <el-col :span="6">
         <el-row style="position:relative;margin-left:15%;margin-top:3%">
           <div>
             <el-avatar shape="circle" :size="220" fit="fill"
               src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg">
             </el-avatar>
-            <el-badge :value="Person.attribute" class="item"></el-badge>
+
           </div>
         </el-row>
-        <el-divider></el-divider>
+        <el-divider content-position="right">
+          <el-badge :value="Person.state" class="item"></el-badge>
+        </el-divider>
         <el-row style="position:relative;margin-left:15%;margin-top:0%">
           <el-descriptions :title="Person.name" style="font-size:100%">
             <el-descriptions-item label="专业" :span="5">
@@ -122,7 +124,7 @@
           solveproblems: '500',
           team: 'PaperMan',
           email: 'zxq@qq.com',
-          attribute: 'new'
+          state: '萌新'
         },
       }
     },
