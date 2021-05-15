@@ -12,7 +12,7 @@
         </el-table-column>
         <el-table-column label="操作">
           <template #default="scope">
-            <el-button @click="handleClick(scope.row)" type="text">查看</el-button>
+            <el-button @click="handleClick(scope.row)" icon="el-icon-search" round></el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -22,12 +22,8 @@
 
 
 <style>
-  .el-table .next-row {
-    background: rgb(229, 252, 227);
-  }
-
-  .el-table .finished-row {
-    background: #f7ebd6;
+  .el-table .row-color {
+    background: rgb(233, 246, 248);
   }
 </style>
 
@@ -36,17 +32,13 @@
     methods: {
       tableRowClassName({
         row,
-        rowIndex
       }) {
-        if (rowIndex === 0) {
-          return 'next-row';
-        } 
-        return 'finished-row';
+        return 'row-color';
       },
       handleClick(row) {
         console.log(row);
         this.$router.push({
-          path: '/statistics/train/' + row.title
+          path: '/train/' + row.title
         });
       }
     },

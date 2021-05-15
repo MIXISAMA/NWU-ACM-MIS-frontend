@@ -1,24 +1,44 @@
 <template>
   <el-scrollbar style="height:100%">
-    <el-row >
+    <el-row>
       <el-col :span="6">
         <el-row style="position:relative;margin-left:15%;margin-top:3%">
           <div>
             <el-avatar shape="circle" :size="220" fit="fill"
               src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg">
             </el-avatar>
-            <el-badge :value="Person.attribute" class="item"></el-badge>
+
           </div>
         </el-row>
-        <el-divider></el-divider>
+        <el-divider content-position="right">
+          <el-badge :value="Person.state" class="item"></el-badge>
+        </el-divider>
         <el-row style="position:relative;margin-left:15%;margin-top:0%">
-          <el-descriptions :title="Person.name">
-            <el-descriptions-item label="专业" :span="5">{{Person.department}}</el-descriptions-item>
-            <el-descriptions-item label="学号" :span="5">{{Person.studentID}}</el-descriptions-item>
-            <el-descriptions-item label="CFID" :span="5">{{Person.codeforceID}}</el-descriptions-item>
-            <el-descriptions-item label="刷题量" :span="5">{{Person.solveproblems}}</el-descriptions-item>
-            <el-descriptions-item label="所属队伍" :span="5">{{Person.team}}</el-descriptions-item>
-            <el-descriptions-item label="联系邮箱" :span="5">{{Person.email}}</el-descriptions-item>
+          <el-descriptions :title="Person.name" style="font-size:100%">
+            <el-descriptions-item label="专业" :span="5">
+              <el-divider direction="vertical"></el-divider>
+              {{Person.department}}
+            </el-descriptions-item>
+            <el-descriptions-item label="学号" :span="5">
+              <el-divider direction="vertical"></el-divider>
+              {{Person.studentID}}
+            </el-descriptions-item>
+            <el-descriptions-item label="CFID" :span="5">
+              <el-divider direction="vertical"></el-divider>
+              {{Person.codeforceID}}
+            </el-descriptions-item>
+            <el-descriptions-item label="刷题量" :span="5">
+              <el-divider direction="vertical"></el-divider>
+              {{Person.solveproblems}}
+            </el-descriptions-item>
+            <el-descriptions-item label="所属队伍" :span="5">
+              <el-divider direction="vertical"></el-divider>
+              {{Person.team}}
+            </el-descriptions-item>
+            <el-descriptions-item label="联系邮箱" :span="5">
+              <el-divider direction="vertical"></el-divider>
+              {{Person.email}}
+            </el-descriptions-item>
           </el-descriptions>
         </el-row>
       </el-col>
@@ -104,7 +124,7 @@
           solveproblems: '500',
           team: 'PaperMan',
           email: 'zxq@qq.com',
-          attribute: 'new'
+          state: '萌新'
         },
       }
     },
