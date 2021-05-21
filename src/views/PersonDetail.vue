@@ -43,7 +43,8 @@
         </el-row>
       </el-col>
       <el-col :span="6">
-        <v-chart class="chart" :option="option" />
+        <rating-chart class="Rating"/>
+        <heat-map-chart class="heat-map"/>
       </el-col>
     </el-row>
   </el-scrollbar>
@@ -66,14 +67,20 @@
     overflow-y: hidden;
   }
 
-  .chart {
+  .Rating {
     height: 400px;
     width: 900px;
     position: relative;
     left: 0%;
     top: 0%;
   }
-
+  .heat-map {
+    height: 400px;
+    width: 900px;
+    position: relative;
+    left: 0%;
+    top: 0%;
+  }
   .item {
     position: relative;
     margin-top: 0%;
@@ -83,36 +90,11 @@
 
 <script>
   import {
-    use
-  } from "echarts/core";
-  import {
-    GridComponent,
-    LegendComponent,
-    TitleComponent,
-  } from 'echarts/components';
-  import {
-    LineChart
-  } from 'echarts/charts';
-  import {
-    CanvasRenderer
-  } from 'echarts/renderers';
-
-  import VChart, {
-    THEME_KEY
-  } from "vue-echarts";
-  import {
-    ref,
+    // ref,
     defineComponent
-  } from "vue";
-
-  use([
-    GridComponent,
-    LineChart,
-    LegendComponent,
-    CanvasRenderer,
-    TitleComponent,
-  ]);
-
+  } from "vue"
+  import RatingChart from "@/components/RatingChart.vue"
+  import HeatMapChart from "@/components/HeatMapChart"
   export default defineComponent({
     data() {
       return {
@@ -134,38 +116,9 @@
       }
     },
     components: {
-      VChart
+      RatingChart,
+      HeatMapChart,
     },
-    provide: {
-      [THEME_KEY]: "light"
-    },
-    setup: () => {
-      const option = ref({
-        title: {
-          text: 'CodeForce Rating',
-          left: '5%',
-          top: '0%',
-        },
-        tooltip: {
-          trigger: 'item',
-          formatter: "{b} : {c}"
-        },
-        xAxis: {
-          type: 'category',
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-        },
-        yAxis: {
-          type: 'value'
-        },
-        series: [{
-          data: [1250, 1230, 1224, 1200, 1350, 1470, 1360],
-          type: 'line'
-        }]
-      });
-
-      return {
-        option
-      };
-    }
-  });
+    
+  })
 </script>
