@@ -2,7 +2,7 @@
   <el-row>
     <p class="title">Welcome to NWU ACM.</p>
     <router-link to="/publicity">
-      <el-button style="margin-top:15%;margin-left:15%;" round>关于我们</el-button>
+      <el-button style="margin-top:16%;margin-left:15%;" round>关于我们</el-button>
     </router-link>
   </el-row>
   <el-row>
@@ -15,30 +15,15 @@
           </router-link>
         </div>
       </template>
-      <el-row>
-        <p style="font-style: italic;">{{publicity[0].time}}</p>
-        <router-link to="/publicity">
-          <el-button class="button" style="margin-left:10%; margin-top:13%; font-size:15px;" type="text">{{publicity[0].title}}</el-button>
-        </router-link>
-      </el-row>
-      <el-row>
-        <p style="font-style: italic;">{{publicity[1].time}}</p>
-        <router-link to="/publicity">
-          <el-button class="button" style="margin-left:10%; margin-top:13%; font-size:15px;" type="text">{{publicity[1].title}}</el-button>
-        </router-link>
-      </el-row>
-      <el-row>
-       <p style="font-style: italic;">{{publicity[2].time}}</p>
-        <router-link to="/publicity">
-          <el-button class="button" style="margin-left:10%; margin-top:13%; font-size:15px;" type="text">{{publicity[2].title}}</el-button>
-        </router-link>
-      </el-row>
-      <el-row>
-        <p style="font-style: italic;;">{{publicity[3].time}}</p>
-        <router-link to="/publicity">
-          <el-button class="button" style="margin-left:10%; margin-top:13%; font-size:15px;" type="text">{{publicity[3].title}}</el-button>
-        </router-link>
-      </el-row>
+      <div v-for="item in 4" :key="item">
+        <el-row>
+          <p style="font-style: italic;">{{publicity[item].time}}</p>
+          <router-link to="/publicity">
+            <el-button class="button" style="margin-left:10%; margin-top:13%; font-size:15px;" type="text">
+              {{publicity[item].title}}</el-button>
+          </router-link>
+        </el-row>
+      </div>
     </el-card>
     <div style="width: 28%; min-width: 220px;">
       <el-row>
@@ -87,21 +72,23 @@
           rank: '6',
           name: 'ZhuJiu',
           score: '1400'
-        },{
+        }, {
           rank: '7',
           name: 'Anonytt',
           score: '1300'
         }],
-        publicity:[{
+        publicity: [{
+
+        }, {
           time: '2020.01.01',
           title: '训练公告',
-        },{
+        }, {
           time: '2020.02.01',
           title: '训练公告',
-        },{
+        }, {
           time: '2020.03.01',
           title: '训练公告',
-        },{
+        }, {
           time: '2020.04.01',
           title: '训练公告',
         }],
@@ -111,7 +98,6 @@
 </script>
 
 <style scoped>
-
   .board_text {
     margin-left: 1%;
     font-size: 18px;
