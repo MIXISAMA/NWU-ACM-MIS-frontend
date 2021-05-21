@@ -11,7 +11,7 @@
   </div>
   <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   
-  <el-container style="min-width: 750px;">
+  <el-container style="min-width: 1250px;">
     <el-header style="border-bottom: 1px solid #dcdfe6;float: right;">
       <MainHeader/>
     </el-header>

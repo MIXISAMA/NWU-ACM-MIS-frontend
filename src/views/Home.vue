@@ -2,7 +2,7 @@
   <el-row>
     <p class="title">Welcome to NWU ACM.</p>
     <router-link to="/publicity">
-      <el-button style="margin-top:15%;margin-left:15%;" round>关于我们</el-button>
+      <el-button style="margin-top:16%;margin-left:15%;" round>关于我们</el-button>
     </router-link>
   </el-row>
   <el-row>
@@ -15,36 +15,21 @@
           </router-link>
         </div>
       </template>
-      <div class="text">
-        {{publicity[0].time}}
-        <router-link to="/publicity">
-          <el-button style="margin-left: 2%; font-size:15px;" class="button" type="text">{{publicity[0].title}}</el-button>
-        </router-link>
-      </div>
-      <div class="text">
-        {{publicity[1].time}}
-        <router-link to="/publicity">
-          <el-button style="margin-left: 2%; font-size:15px;" class="button" type="text">{{publicity[1].title}}</el-button>
-        </router-link>
-      </div>
-      <div class="text">
-        {{publicity[2].time}}
-        <router-link to="/publicity">
-          <el-button style="margin-left: 2%; font-size:15px;" class="button" type="text">{{publicity[2].title}}</el-button>
-        </router-link>
-      </div>
-      <div class="text">
-        {{publicity[3].time}}
-        <router-link to="/publicity">
-          <el-button style="margin-left: 2%; font-size:15px;" class="button" type="text">{{publicity[3].title}}</el-button>
-        </router-link>
+      <div v-for="item in 4" :key="item">
+        <el-row>
+          <p style="font-style: italic;">{{publicity[item].time}}</p>
+          <router-link to="/publicity">
+            <el-button class="button" style="margin-left:10%; margin-top:13%; font-size:15px;" type="text">
+              {{publicity[item].title}}</el-button>
+          </router-link>
+        </el-row>
       </div>
     </el-card>
     <div style="width: 28%; min-width: 220px;">
       <el-row>
-        <p style="font-size:20px;font-weight:bold;margin-top:0%;">Codeforces Top Rating</p>
+        <p style="font-size:25px;font-weight:bold;">Top Rating</p>
         <router-link to="/statistics/rating">
-          <el-button style="margin-left: 35%; font-size:13px;" round>完整榜单</el-button>
+          <el-button style="margin-top: 40%; margin-left: 20%; font-size:15px;" type="text">完整榜单</el-button>
         </router-link>
       </el-row>
       <el-table :data="tableData" stripe class="rank">
@@ -87,19 +72,25 @@
           rank: '6',
           name: 'ZhuJiu',
           score: '1400'
+        }, {
+          rank: '7',
+          name: 'Anonytt',
+          score: '1300'
         }],
-        publicity:[{
-          time: '2020-01-01',
-          title: '公告1',
-        },{
-          time: '2020-02-01',
-          title: '公告2',
-        },{
-          time: '2020-03-01',
-          title: '公告3',
-        },{
-          time: '2020-04-01',
-          title: '公告4',
+        publicity: [{
+
+        }, {
+          time: '2020.01.01',
+          title: '训练公告',
+        }, {
+          time: '2020.02.01',
+          title: '训练公告',
+        }, {
+          time: '2020.03.01',
+          title: '训练公告',
+        }, {
+          time: '2020.04.01',
+          title: '训练公告',
         }],
       }
     }
@@ -107,6 +98,11 @@
 </script>
 
 <style scoped>
+  .board_text {
+    margin-left: 1%;
+    font-size: 18px;
+  }
+
   .title {
     margin-top: 1%;
     margin-left: 5%;
@@ -136,7 +132,7 @@
 
   .rank {
     width: 70%;
-    margin-top: 3%;
+    margin-top: 1%;
     border: 3px solid rgba(122, 119, 119, 0.034);
     min-width: 230px;
   }
