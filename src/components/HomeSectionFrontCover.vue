@@ -61,17 +61,15 @@
 </template>
 
 <script lang="ts">
-  import {
-    Vue
-  } from 'vue-class-component'
+import { Vue } from 'vue-class-component'
 
-  export default class HomeSectionFrontCover extends Vue {
-    imgItemData = [
-      [1, 'active', 'https://mail.nwu.edu.cn/coremail/common/assets/index_cmxt50/img/mainBg1.jpg'],
-      [2, '', 'https://mail.nwu.edu.cn/coremail/common/assets/index_cmxt50/img/mainBg2.jpg'],
-      [3, '', 'https://mail.nwu.edu.cn/coremail/common/assets/index_cmxt50/img/mainBg3.jpg'],
-    ]
-  }
+export default class HomeSectionFrontCover extends Vue {
+  imgItemData = [
+    [1, 'active', 'https://mail.nwu.edu.cn/coremail/common/assets/index_cmxt50/img/mainBg1.jpg'],
+    [2, '', 'https://mail.nwu.edu.cn/coremail/common/assets/index_cmxt50/img/mainBg2.jpg'],
+    [3, '', 'https://mail.nwu.edu.cn/coremail/common/assets/index_cmxt50/img/mainBg3.jpg'],
+]
+}
 </script>
 
 <style scoped>
