@@ -4,32 +4,25 @@
       class="carousel slide" 
       data-bs-ride="carousel">
       <div class="carousel-indicators">
-        <button 
-          type="button" 
-          data-bs-target="#carouselExampleIndicators" 
-          data-bs-slide-to="0" 
-          class="active"
-          aria-current="true" 
-          aria-label="Slide 1">
-        </button>
-        <button 
-          type="button" 
-          data-bs-target="#carouselExampleIndicators" 
-          data-bs-slide-to="1"
-          aria-label="Slide 2"></button>
-        <button 
-          type="button" 
-          data-bs-target="#carouselExampleIndicators" 
-          data-bs-slide-to="2"
-          aria-label="Slide 3">
-        </button>
+        <div 
+          v-for="item in imgItemData"
+          :key="item[0]">
+          <button 
+            type="button" 
+            data-bs-target="#carouselExampleIndicators" 
+            :data-bs-slide-to=(item[0]-1) 
+            :class=item[1]
+            :aria-current="item[0] == 1 ? true : false" 
+            :aria-label="'Slide' + item[0]">
+          </button>
+        </div>
       </div>
       <div class="carousel-inner">
         <div 
           v-for="item in imgItemData" 
           :key="item[0]" 
           :class="'carousel-item ' + item[1] +' zmd'" 
-          :style="{backgroundImage: 'url(' +item[2] + ')'}">
+          :style="{backgroundImage: 'url(' + item[2] + ')'}">
           <p class="text-shadow">Welcome to NWU ACM!</p>
           <a href="#introduction"> 
             <button 
@@ -68,7 +61,7 @@ export default class HomeSectionFrontCover extends Vue {
     [1, 'active', 'https://mail.nwu.edu.cn/coremail/common/assets/index_cmxt50/img/mainBg1.jpg'],
     [2, '', 'https://mail.nwu.edu.cn/coremail/common/assets/index_cmxt50/img/mainBg2.jpg'],
     [3, '', 'https://mail.nwu.edu.cn/coremail/common/assets/index_cmxt50/img/mainBg3.jpg'],
-]
+  ]
 }
 </script>
 
