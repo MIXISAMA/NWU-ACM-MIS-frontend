@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@types/bootstrap": "^5.0.15",
+    "axios": "^0.21.1",
     "bootstrap": "^5.0.1",
     "core-js": "^3.8.3",
     "echarts": "^5.1.2",
