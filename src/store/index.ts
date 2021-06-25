@@ -1,28 +1,19 @@
-import { createStore } from 'vuex'
+import { createStore, Store, useStore as baseUseStore } from 'vuex'
+import { InjectionKey } from 'vue'
+import { AuthState, authModule } from '@/store/modules/auth'
 
-export default createStore({
-  state: {
-    loggedIn: false,
-    email: null,
-    roleType: null,
-    avatar: null,
-  },
-  mutations: {
-    loginIn(state, payload) {
-      state.loggedIn = true
-      state.email = payload.email
-      state.roleType = payload.roleType
-      state.avatar = payload.avatar
-    },
-    loginOut(state) {
-      state.loggedIn = false
-      state.email = null
-      state.roleType = null
-      state.avatar = null
-    },
-  },
-  actions: {
-  },
+export interface State {
+  auth: AuthState
+}
+
+export const key: InjectionKey<Store<State>> = Symbol()
+
+export const store = createStore<State>({
   modules: {
+    auth: authModule,
   }
 })
+
+export function useStore(): Store<State> {
+  return baseUseStore(key)
+}

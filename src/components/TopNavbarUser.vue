@@ -8,7 +8,7 @@
       aria-expanded="false"
     >
       <img
-        src="https://avatars.githubusercontent.com/u/34473927?s=60&v=4"
+        :src="avatar"
         class="rounded"
         style="width: 1.875rem; height: 1.875rem;"
       >
@@ -23,8 +23,14 @@
 
 <script lang="ts">
 import { Vue } from 'vue-class-component'
+import { useStore } from '@/store/index'
 
-export default class TopNavbarUser extends Vue {}
+export default class TopNavbarUser extends Vue {
+  get avatar(): string {
+    const store = useStore()
+    return store.state.auth.avatar
+  }
+}
 </script>
 
 <style scoped>

@@ -9,6 +9,10 @@ module.exports = {
           '^/api': '',
         },
       },
+      '/media': {
+        target: 'http://localhost:8070',
+        changeOrigin: true,
+      },
     },
   },
 }

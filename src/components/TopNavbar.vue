@@ -37,7 +37,7 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div v-if="Math.random() > 0.5">
+        <div v-if="isAuthenticated">
           <TopNavbarUser/>
         </div>
         <div v-else>
@@ -52,6 +52,7 @@
 import { Options, Vue } from 'vue-class-component'
 import TopNavbarUser from '@/components/TopNavbarUser.vue'
 import TopNavbarAnonymous from '@/components/TopNavbarAnonymous.vue'
+import { useStore } from '@/store/index'
 
 @Options({
   components: {
@@ -71,6 +72,10 @@ export default class TopNavbar extends Vue {
   ]
   isCurrentRoute(name: string): string | undefined {
     return this.$route.name === name ? 'page' : undefined
+  }
+  get isAuthenticated(): boolean {
+    const store = useStore()
+    return store.getters['auth/isAuthenticated']
   }
 }
 </script>
